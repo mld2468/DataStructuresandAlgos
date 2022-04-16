@@ -65,3 +65,65 @@ void SinglyLinkedList::insertNode(int k, LLNode* n) {
         }
     }
 }
+
+void SinglyLinkedList::deleteNodeByKey(int k) {
+    if (head == nullptr) {
+        std::cout << "LL is already empty, cannot delete." << std::endl;
+    }
+    else if (head != nullptr) {
+        if (head->key == k) {
+            head = head->next;
+            std::cout << "Node unlinked with keys value." << std::endl;
+        }
+        else {
+            LLNode* temp = nullptr;
+            LLNode* prev = head;
+            LLNode* curr = head->next;
+            while (curr != nullptr) {
+                if (curr->key == k) {
+                    temp = curr;
+                    curr = nullptr;
+                }
+                else {
+                    prev = prev->next;
+                    curr = curr->next;
+                }
+            }
+            if (temp != nullptr) {
+                prev->next = temp->next;
+                temp->next = nullptr;
+                std::cout << "Node with key value: " << k << "unlinked" << std::endl;
+            }
+            else {
+                std::cout << "Node with key value: " << k << "does not exist in LL" << std::endl;
+            }
+        }
+    }
+}
+
+void SinglyLinkedList::updateNodeByKey(int k, int d) {
+    LLNode* ptr = nodeExists(k);
+
+    if (ptr != nullptr) {
+        ptr->data = d;
+        std::cout << "Node with key value: " << k << "has been updated" << std::endl;
+    }
+    else {
+        std::cout << "Node does not exist." << std::endl;
+    }
+}
+
+void SinglyLinkedList::printLL() {
+    if (head == nullptr) {
+        std::cout << "This list is empty." << std::endl;
+    }
+    else {
+        std::cout << std::endl <<  "Singly Linked List values: " << std::endl;
+        LLNode* temp = head;
+
+        while (temp != nullptr) {
+            std::cout << "(key: " << temp->key << "," << "data: " << temp->data << ") --> ";
+            temp = temp->next;
+        }
+    }
+}

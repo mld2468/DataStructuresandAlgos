@@ -1,6 +1,7 @@
 #ifndef DATASTRUCTURESANDALGOS_SINGLYLINKEDLIST_H
 #define DATASTRUCTURESANDALGOS_SINGLYLINKEDLIST_H
 #include "LLNode.h"
+#include <iostream>
 
 class SinglyLinkedList {
 public:
@@ -12,10 +13,14 @@ public:
     void insertNode(int k, LLNode* n);
     void deleteNodeByKey(int k);
     void updateNodeByKey(int k, int d);
-    void print(LLNode* h);
+    void printLL();
 
     SinglyLinkedList() {
         head = nullptr;
+    }
+
+    ~SinglyLinkedList() {
+        std::cout << "Destructor called." << std::endl;
     }
 private:
 };
