@@ -113,7 +113,7 @@ void SinglyLinkedList::updateNodeByKey(int k, int d) {
     }
 }
 
-void SinglyLinkedList::printLL() {
+void SinglyLinkedList::printLL() const {
     if (head == nullptr) {
         std::cout << "This list is empty." << std::endl;
     }

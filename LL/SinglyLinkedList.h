@@ -13,7 +13,7 @@ public:
     void insertNode(int k, LLNode* n);
     void deleteNodeByKey(int k);
     void updateNodeByKey(int k, int d);
-    void printLL();
+    void printLL() const;
 
     SinglyLinkedList() {
         head = nullptr;
